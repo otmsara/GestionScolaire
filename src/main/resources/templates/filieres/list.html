@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/filieres/new" class="btn btn-primary">Ajouter Filière</a>
+<table class="table mt-3">
+    <tr><th>Code</th><th>Nom</th><th>Actions</th></tr>
+    <tr th:each="f : ${filieres}">
+        <td th:text="${f.code}"></td>
+        <td th:text="${f.nom}"></td>
+        <td>
+            <a th:href="@{/filieres/edit/{id}(id=${f.id})}" class="btn btn-warning">Modifier</a>
+            <a th:href="@{/filieres/delete/{id}(id=${f.id})}" class="btn btn-danger">Supprimer</a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

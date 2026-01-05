@@ -1,7 +1,7 @@
 package com.example.gestion_scolaire.entities;
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Id;
 
 import java.util.List;
 
