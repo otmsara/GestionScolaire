@@ -6,6 +6,8 @@ import com.example.gestion_scolaire.repositories.EleveRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+
 @Service
 public class EleveService {
 

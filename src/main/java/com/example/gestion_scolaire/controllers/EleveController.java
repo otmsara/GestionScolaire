@@ -1,12 +1,13 @@
 package com.example.gestion_scolaire.controllers;
 
-import ch.qos.logback.core.model.Model;
+import org.springframework.ui.Model;
+import com.example.gestion_scolaire.entities.Eleve;
+import com.example.gestion_scolaire.repositories.CoursRepository;
 import com.example.gestion_scolaire.repositories.EleveRepository;
 import com.example.gestion_scolaire.repositories.FiliereRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/eleves")

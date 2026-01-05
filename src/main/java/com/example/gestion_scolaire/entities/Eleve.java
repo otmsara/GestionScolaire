@@ -24,4 +24,15 @@ public class Eleve {
 
     @OneToOne(mappedBy = "eleve", cascade = CascadeType.ALL)
     private DossierAdministratif dossierAdministratif;
+
+
+
+    public DossierAdministratif getDossierAdministratif() {
+        return dossierAdministratif;
+    }
+
+    public void setDossierAdministratif(DossierAdministratif dossierAdministratif) {
+        this.dossierAdministratif = dossierAdministratif;
+    }
+
 }

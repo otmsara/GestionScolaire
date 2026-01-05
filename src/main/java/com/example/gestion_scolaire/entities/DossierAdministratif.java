@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.OneToOne;
 import org.springframework.data.annotation.Id;
+import java.time.LocalDate;
+
 
 import java.time.LocalDate;
 
@@ -21,4 +23,22 @@ public class DossierAdministratif {
 
     @OneToOne
     private Eleve eleve;
+
+
+    public LocalDate getDateCreation() {
+        return dateCreation;
+    }
+
+    public void setDateCreation(LocalDate dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    public Eleve getEleve() {
+        return eleve;
+    }
+
+    public void setEleve(Eleve eleve) {
+        this.eleve = eleve;
+    }
+
 }

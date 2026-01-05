@@ -1,14 +1,14 @@
 package com.example.gestion_scolaire.controllers;
 
-import ch.qos.logback.core.model.Model;
+import org.springframework.ui.Model;
+import jakarta.validation.Valid;
 import com.example.gestion_scolaire.entities.Cours;
 import com.example.gestion_scolaire.repositories.CoursRepository;
 import com.example.gestion_scolaire.repositories.FiliereRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/cours")
