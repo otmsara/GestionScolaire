@@ -18,13 +18,11 @@ public class FiliereController {
     @Autowired
     private FiliereRepository filiereRepository;
 
-
     @GetMapping
     public String list(Model model) {
         model.addAttribute("filieres", filiereRepository.findAll());
         return "filieres/list";
     }
-
 
     @GetMapping("/new")
     public String form(Model model) {
@@ -32,17 +30,24 @@ public class FiliereController {
         return "filieres/form";
     }
 
-
     @PostMapping("/save")
     public String save(Filiere filiere) {
         filiereRepository.save(filiere);
         return "redirect:/filieres";
     }
 
-
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         filiereRepository.deleteById(id);
         return "redirect:/filieres";
     }
+
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable Long id, Model model) {
+        Filiere filiere = filiereRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Filiere introuvable : " + id));
+        model.addAttribute("filiere", filiere);
+        return "filieres/form"; // Reuse the same form template for create & edit
+    }
+
 }

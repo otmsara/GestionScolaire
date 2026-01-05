@@ -7,66 +7,59 @@
 </head>
 <body>
 
-<div class="container mt-4">
+<div class="container mt-5">
 
-    <h2 th:text="${eleve.id == null ? 'Ajouter un élève' : 'Modifier un élève'}"></h2>
-
-    <form th:action="@{/eleves/save}" th:object="${eleve}" method="post">
-
-        <input type="hidden" th:field="*{id}"/>
-
-        <!-- NOM -->
-        <div class="mb-3">
-            <label class="form-label">Nom</label>
-            <input type="text" th:field="*{nom}" class="form-control"/>
-            <div class="text-danger"
-                 th:if="${#fields.hasErrors('nom')}"
-                 th:errors="*{nom}">
-            </div>
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0" th:text="${eleve.id == null ? 'Ajouter un élève' : 'Modifier un élève'}"></h3>
         </div>
+        <div class="card-body">
 
-        <!-- PRENOM -->
-        <div class="mb-3">
-            <label class="form-label">Prénom</label>
-            <input type="text" th:field="*{prenom}" class="form-control"/>
-            <div class="text-danger"
-                 th:if="${#fields.hasErrors('prenom')}"
-                 th:errors="*{prenom}">
-            </div>
+            <form th:action="@{/eleves/save}" th:object="${eleve}" method="post">
+
+                <input type="hidden" th:field="*{id}"/>
+
+                <!-- NOM -->
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Nom</label>
+                    <input type="text" th:field="*{nom}" class="form-control" placeholder="Entrez le nom"/>
+                    <div class="text-danger mt-1" th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></div>
+                </div>
+
+                <!-- PRENOM -->
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Prénom</label>
+                    <input type="text" th:field="*{prenom}" class="form-control" placeholder="Entrez le prénom"/>
+                    <div class="text-danger mt-1" th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}"></div>
+                </div>
+
+                <!-- FILIERE -->
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Filière</label>
+                    <select th:field="*{filiere.id}" class="form-select">
+                        <option value="">-- Sélectionner --</option>
+                        <option th:each="f : ${filieres}" th:value="${f.id}" th:text="${f.nom}"></option>
+                    </select>
+                </div>
+
+                <!-- COURS -->
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Cours suivis</label>
+                    <select th:field="*{cours}" multiple class="form-select">
+                        <option th:each="c : ${cours}" th:value="${c.id}" th:text="${c.intitule}"></option>
+                    </select>
+                </div>
+
+                <!-- ACTIONS -->
+                <div class="d-flex justify-content-end gap-2">
+                    <a th:href="@{/eleves}" class="btn btn-outline-secondary">Annuler</a>
+                    <button type="submit" class="btn btn-success">Enregistrer</button>
+                </div>
+
+            </form>
+
         </div>
-
-        <!-- FILIERE -->
-        <div class="mb-3">
-            <label class="form-label">Filière</label>
-            <select th:field="*{filiere}" class="form-select">
-                <option value="">-- Sélectionner --</option>
-                <option th:each="f : ${filieres}"
-                        th:value="${f}"
-                        th:text="${f.nom}">
-                </option>
-            </select>
-        </div>
-
-        <!-- COURS -->
-        <div class="mb-3">
-            <label class="form-label">Cours suivis</label>
-            <select th:field="*{cours}" multiple class="form-select">
-                <option th:each="c : ${cours}"
-                        th:value="${c}"
-                        th:text="${c.intitule}">
-                </option>
-            </select>
-        </div>
-
-        <!-- ACTIONS -->
-        <button type="submit" class="btn btn-success">
-            Enregistrer
-        </button>
-        <a th:href="@{/eleves}" class="btn btn-secondary">
-            Annuler
-        </a>
-
-    </form>
+    </div>
 
 </div>
 
