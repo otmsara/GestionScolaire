@@ -1,10 +1,7 @@
 package com.example.gestion_scolaire.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
 
@@ -22,7 +19,9 @@ public class DossierAdministratif {
 
 
     @OneToOne
+    @JoinColumn(name = "eleve_id", nullable = false)
     private Eleve eleve;
+
 
 
     public LocalDate getDateCreation() {

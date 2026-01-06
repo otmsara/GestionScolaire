@@ -15,7 +15,7 @@ public class Cours {
     @ManyToOne
     private Filiere filiere;
 
-    // ===== GETTERS & SETTERS =====
+    // Getters and Setters
 
     public Long getId() {
         return id;

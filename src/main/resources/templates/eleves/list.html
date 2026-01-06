@@ -58,13 +58,20 @@
                        onclick="return confirm('Supprimer cet élève ?')">
                         <i class="bi bi-trash"></i> Supprimer
                     </a>
+                    <a th:href="@{/eleves/detail/{id}(id=${e.id})}"
+                       class="btn btn-info btn-sm">
+                        <i class="bi bi-info-circle"></i> Détails
+                    </a>
                 </td>
             </tr>
             </tbody>
         </table>
     </div>
 
+
+
 </div>
+
 
 </body>
 </html>

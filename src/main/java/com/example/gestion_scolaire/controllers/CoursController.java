@@ -20,14 +20,12 @@ public class CoursController {
     @Autowired
     private FiliereRepository filiereRepository;
 
-    // LISTE DES COURS
     @GetMapping
     public String list(Model model) {
         model.addAttribute("cours", coursRepository.findAll());
         return "cours/list";
     }
 
-    // FORMULAIRE AJOUT
     @GetMapping("/new")
     public String form(Model model) {
         model.addAttribute("cours", new Cours());
@@ -35,22 +33,16 @@ public class CoursController {
         return "cours/form";
     }
 
-    // ENREGISTREMENT (AJOUT / MODIFICATION) + VALIDATION
     @PostMapping("/save")
-    public String save(@Valid @ModelAttribute Cours cours,
-                       BindingResult result,
-                       Model model) {
-
+    public String save(@Valid @ModelAttribute Cours cours, BindingResult result, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("filieres", filiereRepository.findAll());
             return "cours/form";
         }
-
         coursRepository.save(cours);
         return "redirect:/cours";
     }
 
-    // MODIFICATION
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable Long id, Model model) {
         model.addAttribute("cours", coursRepository.findById(id).get());
@@ -58,7 +50,6 @@ public class CoursController {
         return "cours/form";
     }
 
-    // SUPPRESSION
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         coursRepository.deleteById(id);

@@ -19,7 +19,7 @@ public class Filiere {
     @OneToMany(mappedBy = "filiere")
     private List<Cours> cours;
 
-    // ===== GETTERS & SETTERS =====
+    // Getters and Setters
 
     public Long getId() {
         return id;

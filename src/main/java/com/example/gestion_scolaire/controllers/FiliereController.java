@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/filieres")
 public class FiliereController {
 
-
     @Autowired
     private FiliereRepository filiereRepository;
 

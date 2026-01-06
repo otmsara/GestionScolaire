@@ -22,7 +22,7 @@ public class Eleve {
     @OneToOne(mappedBy = "eleve", cascade = CascadeType.ALL)
     private DossierAdministratif dossierAdministratif;
 
-    // ===== GETTERS & SETTERS =====
+    // Getters and Setters
 
     public Long getId() {
         return id;
